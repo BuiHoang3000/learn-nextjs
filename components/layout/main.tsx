@@ -1,20 +1,33 @@
 import Link from 'next/link';
+import { Stack } from '@mui/material';
+import { Box } from '@mui/system';
+//
 import { LayoutProps } from '@/models/index';
+//
+import { Footer, Header } from '../common';
 
 export function MainLayout({ children }: LayoutProps) {
   return (
-    <div>
-      <h1>Main Layout</h1>
+    <Stack minHeight="100vh">
+      <Header />
 
-      <Link href="/">
-        <a>Home</a>
-      </Link>
+      <Box component="main" flexGrow={1}>
+        <Link href="/">
+          <a>Home</a>
+        </Link>
 
-      <Link href="/about">
-        <a>About</a>
-      </Link>
+        <Link href="/blog">
+          <a>Blog</a>
+        </Link>
 
-      <div>{children}</div>
-    </div>
+        <Link href="/works">
+          <a>Works</a>
+        </Link>
+
+        {children}
+      </Box>
+
+      <Footer />
+    </Stack>
   );
 }

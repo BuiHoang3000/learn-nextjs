@@ -1,3 +1,4 @@
+import { authApi } from '@/api/auth-api';
 import useSWR from 'swr';
 import { PublicConfiguration } from 'swr/dist/types';
 
@@ -18,16 +19,16 @@ export function useAuth(options?: Partial<PublicConfiguration>) {
   const firstLoading = profile === undefined && error === undefined;
 
   async function login() {
-    // await authApi.login({
-    //   username: 'nextjs',
-    //   password: '123qwe',
-    // })
+    await authApi.login({
+      username: 'nextjs',
+      password: '123qwe',
+    });
 
     await mutate();
   }
 
   async function logout() {
-    // await authApi.logout({})
+    await authApi.logout();
     mutate({}, false);
   }
 
