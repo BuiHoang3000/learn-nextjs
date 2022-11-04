@@ -21,7 +21,7 @@ export function PostCard(props: PostCardProps) {
 
         <Stack direction="row" my={2}>
           <Typography variant="body1">
-            {format(Number(post.publishedDate), 'dd MMM yyyy')}
+            {format(new Date(post.publishedDate), 'dd MMM yyyy')}
           </Typography>
 
           <Divider orientation="vertical" sx={{ mx: 2 }} flexItem />

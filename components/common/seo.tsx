@@ -17,7 +17,7 @@ export function Seo({ data }: SepProps) {
   return (
     <Head>
       {/* Primary Meta Tags */}
-      <title>Learn NextJs | IU2000</title>
+      <title>{title}</title>
       <meta name="title" content={title} />
       <meta name="description" content={description} />
 

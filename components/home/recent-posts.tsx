@@ -13,16 +13,18 @@ export function RecentPost() {
   const postList: Post[] = [
     {
       id: '1',
+      slug: '',
       title: 'Making a design system from scratch',
-      publishedDate: '1648363391671',
+      publishedDate: '2022-06-15T10:00:00Z',
       tagList: ['Design', 'Pattern'],
       description:
         'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s.',
     },
     {
       id: '2',
+      slug: '',
       title: 'Creating pixel perfect icons in Figma',
-      publishedDate: '1648363391671',
+      publishedDate: '2022-06-15T11:00:00Z',
       tagList: ['Figma', 'Icon Design'],
       description:
         'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s.',
