@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 //
-import { LayoutProps } from '@/models/index';
+import { LayoutProps } from '@/models';
 import { useAuth } from '@/hooks/use-auth';
 //
 import { Auth } from '../common';

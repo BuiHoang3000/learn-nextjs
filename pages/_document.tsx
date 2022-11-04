@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import createEmotionServer from '@emotion/server/create-instance';
-import { createEmotionCache, theme } from '@/utils/index';
+import { createEmotionCache, theme } from '@/utils';
 
 export default class MyDocument extends Document {
   render() {
@@ -13,6 +13,10 @@ export default class MyDocument extends Document {
           <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+          />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&display=swap"
+            rel="stylesheet"
           />
         </Head>
         <body>

@@ -1,4 +1,4 @@
-import { useAuth } from '@/hooks/index';
+import { useAuth } from '@/hooks';
 import { useRouter } from 'next/router';
 
 export default function LoginPage() {

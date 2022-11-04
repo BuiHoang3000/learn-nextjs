@@ -6,7 +6,7 @@ import { CacheProvider } from '@emotion/react';
 import { EmptyLayout } from '@/components/layout';
 import { AppPropsWithLayout } from '@/models/common';
 import axiosClient from '@/api/axios-client';
-import { createEmotionCache, theme } from '@/utils/index';
+import { createEmotionCache, theme } from '@/utils';
 //
 import '../styles/globals.css';
 
