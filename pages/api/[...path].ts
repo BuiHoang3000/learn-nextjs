@@ -1,6 +1,6 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
-import httpProxy from 'http-proxy';
 import Cookies from 'cookies';
+import httpProxy from 'http-proxy';
+import type { NextApiRequest, NextApiResponse } from 'next';
 
 // type Data = {
 //   name: string;

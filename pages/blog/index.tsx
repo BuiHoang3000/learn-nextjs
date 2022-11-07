@@ -1,11 +1,11 @@
-import { GetStaticProps } from 'next';
 import { Box, Container, Divider } from '@mui/material';
-//
-import { getPostList } from '@/utils/posts';
+import { GetStaticProps } from 'next';
+import Link from 'next/link';
+
+import { PostItem } from '@/components/blog';
 import { MainLayout } from '@/components/layout';
 import { Post } from '@/models';
-import Link from 'next/link';
-import { PostItem } from '@/components/blog';
+import { getPostList } from '@/utils/posts';
 
 export interface BlogListPageProps {
   blog: Post[];

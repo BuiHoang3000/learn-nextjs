@@ -1,6 +1,6 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
-import httpProxy, { ProxyResCallback } from 'http-proxy';
 import Cookies from 'cookies';
+import httpProxy, { ProxyResCallback } from 'http-proxy';
+import type { NextApiRequest, NextApiResponse } from 'next';
 
 type Data = {
   message: string;
@@ -35,6 +35,17 @@ export default function handler(
 
       proxyRes.on('end', function () {
         try {
+          const isSuccess =
+            proxyRes.statusCode &&
+            proxyRes.statusCode >= 200 &&
+            proxyRes.statusCode < 300;
+          if (!isSuccess) {
+            (res as NextApiResponse)
+              .status(proxyRes.statusCode || 500)
+              .json(body);
+            return resolve(true);
+          }
+
           const { accessToken, expiredAt } = JSON.parse(body);
 
           // Convert token to cookies

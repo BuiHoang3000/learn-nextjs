@@ -1,9 +1,10 @@
 import { Box } from '@mui/system';
+
 //
+import { Seo } from '@/components/common';
 import { FeatureWorks, HeroSection, RecentPost } from '@/components/home';
 import { MainLayout } from '@/components/layout';
 import { NextPageWithLayout } from '@/models/common';
-import { Seo } from '@/components/common';
 
 const Home: NextPageWithLayout = () => {
   return (

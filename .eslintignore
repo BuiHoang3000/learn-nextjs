@@ -1,0 +1,11 @@
+*.md
+build
+*.json
+node_modules
+*.log
+yarn.lock
+.next/**
+next-env.d.ts
+.test-report.xml
+eslint-report.json
+styles

@@ -1,4 +1,3 @@
-import { Post } from '@/models';
 import {
   Box,
   Container,
@@ -7,6 +6,9 @@ import {
   Link as MuiLink,
 } from '@mui/material';
 import Link from 'next/link';
+
+import { Post } from '@/models';
+
 import { PostCard } from './post-card';
 
 export function RecentPost() {
@@ -17,8 +19,8 @@ export function RecentPost() {
       title: 'Making a design system from scratch',
       publishedDate: '2022-06-15T10:00:00Z',
       tagList: ['Design', 'Pattern'],
-      description:
-        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s.',
+      description: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+      Lorem Ipsum has been the industry standard dummy text ever since the 1500s.`,
     },
     {
       id: '2',
@@ -26,8 +28,8 @@ export function RecentPost() {
       title: 'Creating pixel perfect icons in Figma',
       publishedDate: '2022-06-15T11:00:00Z',
       tagList: ['Figma', 'Icon Design'],
-      description:
-        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s.',
+      description: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+      Lorem Ipsum has been the industry standard dummy text ever since the 1500s.`,
     },
   ];
 

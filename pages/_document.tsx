@@ -1,6 +1,8 @@
 import * as React from 'react';
-import Document, { Html, Head, Main, NextScript } from 'next/document';
+
 import createEmotionServer from '@emotion/server/create-instance';
+import Document, { Html, Head, Main, NextScript } from 'next/document';
+
 import { createEmotionCache, theme } from '@/utils';
 
 export default class MyDocument extends Document {
@@ -67,6 +69,7 @@ MyDocument.getInitialProps = async (ctx) => {
     });
 
   const initialProps = await Document.getInitialProps(ctx);
+
   // This is important. It prevents emotion to render invalid HTML.
   // See https://github.com/mui-org/material-ui/issues/26561#issuecomment-855286153
   const emotionStyles = extractCriticalToChunks(initialProps.html);
@@ -81,6 +84,7 @@ MyDocument.getInitialProps = async (ctx) => {
 
   return {
     ...initialProps,
+
     // Styles fragment is rendered after the app and page rendering finish.
     styles: [
       ...React.Children.toArray(initialProps.styles),

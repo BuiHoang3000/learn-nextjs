@@ -1,5 +1,6 @@
 import { Box, Button, Container, Stack, Typography } from '@mui/material';
 import Image from 'next/image';
+
 //
 import avatar from '@/images/avatar.jpg';
 

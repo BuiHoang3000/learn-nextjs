@@ -1,17 +1,18 @@
+import { Box, Container, Divider } from '@mui/material';
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next';
-import { unified } from 'unified';
-import remarkRehype from 'remark-rehype';
 import rehypeDocument from 'rehype-document';
 import rehypeFormat from 'rehype-format';
+import rehypeSlug from 'rehype-slug';
 import rehypeStringify from 'rehype-stringify/lib';
 import remarkParse from 'remark-parse';
+import remarkRehype from 'remark-rehype';
 import remarkToc from 'remark-toc';
-import rehypeSlug from 'rehype-slug';
-import { Box, Container, Divider } from '@mui/material';
+import { unified } from 'unified';
+
 //
+import { Seo } from '@/components/common';
 import { Post } from '@/models';
 import { getPostList } from '@/utils/posts';
-import { Seo } from '@/components/common';
 
 export interface BlogDetailPageProps {
   post: Post;

@@ -1,5 +1,9 @@
-import { useAuth } from '@/hooks';
 import { useRouter } from 'next/router';
+
+//
+import { LoginForm } from '@/components/auth';
+import { useAuth } from '@/hooks';
+import { LoginPayload } from '@/models';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -9,7 +13,10 @@ export default function LoginPage() {
 
   async function handleLoginClick() {
     try {
-      await login();
+      await login({
+        username: 'nextjs',
+        password: '123qwe',
+      });
       router.push('/about');
     } catch (error) {}
   }
@@ -17,6 +24,12 @@ export default function LoginPage() {
   async function handleLogoutClick() {
     try {
       await logout();
+    } catch (error) {}
+  }
+
+  async function handleLoginSubmit(payload: LoginPayload) {
+    try {
+      await login(payload);
     } catch (error) {}
   }
 
@@ -29,6 +42,7 @@ export default function LoginPage() {
       <button onClick={handleLoginClick}>Login</button>
       {/* <button onClick={handleGetProfileClick}>Get Profile</button> */}
       <button onClick={handleLogoutClick}>Logout</button>
+      <LoginForm onSubmit={handleLoginSubmit} />
     </div>
   );
 }

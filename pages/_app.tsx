@@ -1,12 +1,14 @@
-import { SWRConfig } from 'swr';
-import { ThemeProvider } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
 import { CacheProvider } from '@emotion/react';
+import CssBaseline from '@mui/material/CssBaseline';
+import { ThemeProvider } from '@mui/material/styles';
+import { SWRConfig } from 'swr';
+
 //
+import axiosClient from '@/api/axios-client';
 import { EmptyLayout } from '@/components/layout';
 import { AppPropsWithLayout } from '@/models/common';
-import axiosClient from '@/api/axios-client';
 import { createEmotionCache, theme } from '@/utils';
+
 //
 import '../styles/globals.css';
 

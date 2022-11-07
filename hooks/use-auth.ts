@@ -1,6 +1,9 @@
-import { authApi } from '@/api/auth-api';
 import useSWR from 'swr';
 import { PublicConfiguration } from 'swr/dist/types';
+
+//
+import { authApi } from '@/api/auth-api';
+import { LoginPayload } from '@/models';
 
 const MILLISECOND_PER_HOUR = 60 * 60 * 1000;
 
@@ -18,11 +21,8 @@ export function useAuth(options?: Partial<PublicConfiguration>) {
 
   const firstLoading = profile === undefined && error === undefined;
 
-  async function login() {
-    await authApi.login({
-      username: 'nextjs',
-      password: '123qwe',
-    });
+  async function login(payload: LoginPayload) {
+    await authApi.login(payload);
 
     await mutate();
   }

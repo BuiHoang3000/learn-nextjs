@@ -1,6 +1,8 @@
 import { Box, Container, Typography } from '@mui/material';
+
 //
 import { Work } from '@/models';
+
 import { WorkList } from '../works';
 
 export function FeatureWorks() {
@@ -11,10 +13,10 @@ export function FeatureWorks() {
       createdAt: '1648363391671',
       updatedAt: '1648363391671',
       tagList: ['Dashboard'],
-      shortDescription:
-        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s.',
-      fullDescription:
-        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s.',
+      shortDescription: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+      Lorem Ipsum has been the industry standard dummy text ever since the 1500s.`,
+      fullDescription: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+      Lorem Ipsum has been the industry standard dummy text ever since the 1500s.`,
       thumbnailUrl:
         'https://1stwebdesigner.com/wp-content/uploads/2019/08/dashboard-design-inspiration-thumb.jpg',
     },
@@ -24,10 +26,10 @@ export function FeatureWorks() {
       createdAt: '1648363391671',
       updatedAt: '1648363391671',
       tagList: ['Illustration '],
-      shortDescription:
-        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s.',
-      fullDescription:
-        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s.',
+      shortDescription: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+      Lorem Ipsum has been the industry standard dummy text ever since the 1500s.`,
+      fullDescription: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+      Lorem Ipsum has been the industry standard dummy text ever since the 1500s.`,
       thumbnailUrl:
         'https://cdn.singulart.com/artworks/v2/cropped/11201/main/fhd/653063_a8c3d933d9d9cae6d42a5dacd2d55317.jpeg',
     },
@@ -37,10 +39,10 @@ export function FeatureWorks() {
       createdAt: '1648363391671',
       updatedAt: '1648363391671',
       tagList: ['Typography'],
-      shortDescription:
-        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s.',
-      fullDescription:
-        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s.',
+      shortDescription: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+      Lorem Ipsum has been the industry standard dummy text ever since the 1500s.`,
+      fullDescription: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+      Lorem Ipsum has been the industry standard dummy text ever since the 1500s.`,
       thumbnailUrl:
         'https://cdn.dribbble.com/users/236966/screenshots/3736760/media/998cb0aaaf41881aba137162f0a9799b.png?compress=1&resize=400x300',
     },
