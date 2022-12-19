@@ -14,13 +14,21 @@ import {
   TextField,
   Typography,
 } from '@mui/material';
-import { ArcElement, Chart, Legend, RadialLinearScale } from 'chart.js';
+import {
+  ArcElement,
+  Chart,
+  ChartData,
+  ChartOptions,
+  registerables,
+} from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { Doughnut } from 'react-chartjs-2';
 
 import { MainLayout } from '@/components/layout';
 
-Chart.register(ArcElement, Legend, RadialLinearScale, ChartDataLabels);
+Chart.register(ArcElement);
+Chart.register(ChartDataLabels);
+Chart.register(...registerables);
 
 async function fetchPosts(pageNum: number, id: number) {
   const response = await fetch(
@@ -41,6 +49,18 @@ const TableCellCustom = styled(TableCell)(() => ({
   color: 'black',
 }));
 
+const thickness = {
+  id: 'thickness',
+  beforeDraw: (chart: any) => {
+    const thickness: number[][] = chart?.options?.plugins?.thickness?.thickness;
+    thickness &&
+      thickness.forEach((item: number[], index: number) => {
+        chart.getDatasetMeta(0).data[index].innerRadius = item[0];
+        chart.getDatasetMeta(0).data[index].outerRadius = item[1];
+      });
+  },
+};
+
 const AboutPage = () => {
   const [page, setPage] = useState(1);
   const [data, setData] = useState<PostType[]>([]);
@@ -57,33 +77,23 @@ const AboutPage = () => {
   };
 
   const options = {
-    options: {
-      plugins: {
-        dataLabels: {
-          display: true,
-          color: 'black',
-          align: 'end',
-          padding: {
-            right: 2,
-          },
-          labels: {
-            padding: { top: 10 },
-            title: {
-              font: {
-                weight: 'bold',
-              },
-            },
-            value: {
-              color: 'green',
-            },
-          },
-          formatter: function (value: any) {
-            return '\n' + value;
-          },
+    plugins: {
+      ChartDataLabels,
+      thickness: {
+        thickness: [
+          [100, 180],
+          [100, 160],
+          [100, 140],
+          [100, 120],
+        ],
+      },
+      datalabels: {
+        color: 'black',
+        font: {
+          size: 14,
+          weight: 'bold',
         },
       },
-    },
-    plugins: {
       legend: {
         position: 'bottom',
         labels: {
@@ -92,23 +102,36 @@ const AboutPage = () => {
         },
       },
     },
-  };
+  } as ChartOptions<'doughnut'>;
 
   const dataDoughnut = {
-    labels: ['10 years', '40 years', '30 years', '20 years'],
+    labels: ['section 1', 'section 2', 'section 3', 'section 4'],
     datasets: [
       {
-        label: 'age',
         data: [47, 23, 18, 12],
-        backgroundColor: ['#F44680', '#58CC02', '#FF9600', '#CED4DA'],
-        borderWidth: 0,
-        hoverOffset: 4,
-        datalabels: {
-          color: '#FFCE56',
-        },
+        backgroundColor: [
+          'rgba(244, 70, 128, 1)',
+          'rgba(88, 204, 2, 1)',
+          'rgba(255, 150, 0, 1)',
+          'rgba(206, 212, 218, 1)',
+        ],
+        borderColor: [
+          'rgb(255, 99, 132)',
+          'rgb(255, 159, 64)',
+          'rgb(255, 205, 86)',
+          'rgb(75, 192, 192)',
+        ],
+        borderWidth: 1,
+        hoverBorderWidth: 2,
+        hoverBorderColor: [
+          'rgb(255, 99, 132)',
+          'rgb(255, 159, 64)',
+          'rgb(255, 205, 86)',
+          'rgb(75, 192, 192)',
+        ],
       },
     ],
-  };
+  } as ChartData<'doughnut'>;
 
   return (
     <>
@@ -153,12 +176,8 @@ const AboutPage = () => {
           </Paper>
         </Box>
       </Typography>
-      <div style={{ width: '30%' }}>
-        <Doughnut
-          data={dataDoughnut}
-          plugins={[ChartDataLabels]}
-          options={options}
-        />
+      <div>
+        <Doughnut data={dataDoughnut} plugins={[thickness]} options={options} />
       </div>
     </>
   );
