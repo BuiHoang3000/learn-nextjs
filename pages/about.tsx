@@ -21,7 +21,7 @@ import {
   ChartOptions,
   registerables,
 } from 'chart.js';
-import ChartDataLabels from 'chartjs-plugin-datalabels';
+import ChartDataLabels, { Context } from 'chartjs-plugin-datalabels';
 import { Doughnut } from 'react-chartjs-2';
 
 import { MainLayout } from '@/components/layout';
@@ -55,8 +55,10 @@ const thickness = {
     const thickness: number[][] = chart?.options?.plugins?.thickness?.thickness;
     thickness &&
       thickness.forEach((item: number[], index: number) => {
-        chart.getDatasetMeta(0).data[index].innerRadius = item[0];
-        chart.getDatasetMeta(0).data[index].outerRadius = item[1];
+        if (chart.getDatasetMeta(0).data[index]) {
+          chart.getDatasetMeta(0).data[index].innerRadius = item[0];
+          chart.getDatasetMeta(0).data[index].outerRadius = item[1];
+        }
       });
   },
 };
@@ -77,8 +79,12 @@ const AboutPage = () => {
   };
 
   const options = {
+    aspectRatio: 2,
+    layout: {
+      padding: 20,
+    },
     plugins: {
-      ChartDataLabels,
+      // ChartDataLabels,
       thickness: {
         thickness: [
           [100, 180],
@@ -88,11 +94,26 @@ const AboutPage = () => {
         ],
       },
       datalabels: {
-        color: 'black',
-        font: {
-          size: 14,
-          weight: 'bold',
+        display: true,
+        labels: {
+          title: {
+            font: {
+              weight: 'bold',
+            },
+            color: 'black',
+          },
         },
+        formatter: (value: number, context: Context) => {
+          let label = '';
+          if (context.chart.data.labels) {
+            label = context.chart.data.labels[context.dataIndex] as string;
+          }
+          return `${value}%\n${label}`;
+        },
+        anchor: 'end',
+        offset: -70,
+        align: 'start',
+        textAlign: 'center',
       },
       legend: {
         position: 'bottom',
